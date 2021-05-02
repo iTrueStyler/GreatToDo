@@ -1,6 +1,20 @@
 
 .list {
     margin-bottom: 30px;
+    &__add-button{
+      svg{
+        
+          path{
+            stroke:#868686;
+          }
+          
+      }
+      span{
+        color:#767676;
+      }
+    }
+
+
     li{
       display: flex;
       align-items: center;
