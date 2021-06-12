@@ -2,6 +2,8 @@ import React from 'react';
 import List from './components/List/index';
 import AddList from './components/AddList/index.jsx'
 
+import DB from './assets/db.json';
+
 function App() {
   
 
@@ -33,7 +35,7 @@ function App() {
             }
           ]}
           />
-          <AddList/>
+          <AddList colors={DB.colors}/>
           
           
       </div>

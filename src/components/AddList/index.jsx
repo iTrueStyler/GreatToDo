@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import List from '../List'
 
 import './AddList.scss'
+import Badge from '../Badge'
+import closeSvg from "../../assets/img/close.svg";
 
+const AddButtonList = ({ colors }) => {
 
-const AddButtonList = () => {
+   const [visiblePopup, setvisiblePopup] = useState(false);
+   const [selectedColor, selectColor] = useState(colors[0].id);
+
+   console.log(selectedColor)
    return (
       <div className='add-list'>
-         <List items={[
+         <List onClick={() => { setvisiblePopup(true) }} items={[
             {
                className: 'list__add-button',
                icon: <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -20,10 +26,15 @@ const AddButtonList = () => {
             }
          ]}
          />
-         <div className='add-list__popup'>
-            <h1>123</h1>
-
-         </div>
+         {visiblePopup && <div className='add-list__popup'>
+            <img onClick={() => { setvisiblePopup(false) }} className='add-list__popup-close-btn' src={closeSvg} alt="CloseButton" />
+            <input className='field' type="text" placeholder='Название списка' />
+            <div className='add-list__popup-colors'>
+               {colors.map(color => <Badge className={selectedColor === color.id && 'active'} onClick={() => { selectColor(color.id) }} key={color.id} color={color.name} />)}
+            </div>
+            <button className='button'>Добавить</button>
+         </div>}
+         {/* если visible popup = true ==> отобрази разметку справа от него */}
       </div >
    )
 }
