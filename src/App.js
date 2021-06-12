@@ -32,9 +32,9 @@ function App() {
               active:true
             }
           ]}/>
-          <List  items = {lists}
+          <List  items = {lists} onRemove={(item)=>{alert('qq')}} isRemovable 
           />
-          <AddList onAdd={onAddList}colors={DB.colors}/>
+          <AddList onAdd={onAddList} colors={DB.colors}/>
           
           
       </div>

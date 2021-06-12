@@ -11,6 +11,13 @@ const AddButtonList = ({ colors, onAdd }) => {
    const [selectedColor, selectColor] = useState(colors[0].id);
    const [inputValue, setInputValue] = useState('');
 
+
+   const onClose = () => {
+      setvisiblePopup(false);
+      setInputValue('');
+      selectColor(colors[0].id);
+   }
+
    const addList = () => {
       if (!inputValue) {
          alert('Введите название списка');
@@ -20,14 +27,9 @@ const AddButtonList = ({ colors, onAdd }) => {
       onAdd({
          id: Math.random(), name: inputValue, color: color
       });
-      setvisiblePopup(false);
-      setInputValue('');
-      selectColor(colors[0].id);
+
+      onClose();
    }
-
-
-
-
 
 
    return (
@@ -46,7 +48,7 @@ const AddButtonList = ({ colors, onAdd }) => {
          ]}
          />
          {visiblePopup && <div className='add-list__popup'>
-            <img onClick={() => { setvisiblePopup(false) }} className='add-list__popup-close-btn' src={closeSvg} alt="CloseButton" />
+            <img onClick={onClose} className='add-list__popup-close-btn' src={closeSvg} alt="CloseButton" />
             <input value={inputValue} onChange={(e) => {
                setInputValue(e.target.value)
             }} className='field' type="text" placeholder='Название списка' />
