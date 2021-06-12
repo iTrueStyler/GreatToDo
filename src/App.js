@@ -1,11 +1,23 @@
-import React from 'react';
+import React,{useState} from 'react';
 import List from './components/List/index';
 import AddList from './components/AddList/index.jsx'
 
 import DB from './assets/db.json';
 
 function App() {
-  
+  const[lists,setLists]=useState(
+    DB.lists.map(item=>{
+      item.color=DB.colors.filter(color=>color.id===item.colorId)[0].name
+      return item
+    })
+  );
+
+
+  const onAddList = (obj)=>{
+    const newList = [...lists,obj];
+    setLists(newList)
+  };
+  // правило иммутабельности , создать новый массив из старых значений и добавить к нему новые , не через PUSH
 
   return (
     <div className='todo'>
@@ -20,22 +32,9 @@ function App() {
               active:true
             }
           ]}/>
-          <List  items = {[
-            {
-              color:"green",
-              name:'Покупки'
-            },
-            {
-              color:"blue",
-              name:'Фронтенд',
-            },
-            {
-              color:"pink",
-              name:'Сериалы'
-            }
-          ]}
+          <List  items = {lists}
           />
-          <AddList colors={DB.colors}/>
+          <AddList onAdd={onAddList}colors={DB.colors}/>
           
           
       </div>
