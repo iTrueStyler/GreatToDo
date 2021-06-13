@@ -3,6 +3,7 @@ import List from './components/List/index';
 import AddList from './components/AddList/index.jsx'
 
 import DB from './assets/db.json';
+import Tasks from './components/Tasks'
 
 function App() {
   const[lists,setLists]=useState(
@@ -40,7 +41,7 @@ function App() {
       </div>
 
     <div className='todo__tasks'> 
-    
+          <Tasks/>
     </div>
     </div>
   );
