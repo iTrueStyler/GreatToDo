@@ -26,6 +26,22 @@
   }
 
   .checkbox {
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      background-color: #4dd599;
+      border-color: #4dd599;
+
+      svg {
+        opacity: 1;
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+
     &:hover {
       label {
         background-color: #f2f2f2;
@@ -38,9 +54,7 @@
         }
       }
     }
-    input {
-      display: none;
-    }
+
     label {
       display: flex;
       align-items: center;
@@ -57,10 +71,20 @@
         //   left: 1px;
       }
     }
+  }
 
-    input:checked + label {
-      background-color: rgb(65, 211, 106);
-      border-color: rgb(65, 211, 106);
+  &__items {
+    margin-top: 30px;
+    &-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      input {
+        margin-left: 15px;
+        width: 100%;
+        border: 0;
+        font-size: 14px;
+      }
     }
   }
 }
