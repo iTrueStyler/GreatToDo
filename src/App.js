@@ -15,17 +15,30 @@ function App() {
   const[activeItem,setActiveItem]=useState(null);
 
     useEffect(() => {
+      
       axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks").then(({data})=>{
         
       setLists(data)
+      
       });
        axios.get("http://localhost:3001/colors").then(({data})=>{
     setColors(data)
       });
+      
     }, [])
 
   const onAddList = (obj)=>{
     const newList = [...lists,obj];
+    setLists(newList)
+  };
+
+  const onAddTasks = (listId,obj)=>{
+    const newList =lists.map(item=>{
+      if (item.id===listId){
+        item.tasks = [...item.tasks,obj]
+      }
+      return item
+    });
     setLists(newList)
   };
   // правило иммутабельности , создать новый массив из старых значений и добавить к нему новые , не через PUSH
@@ -75,7 +88,7 @@ function App() {
         <AddList onAdd={onAddList} colors={colors} />
 
     </div>
-    <div className="todo__tasks">{lists && activeItem && <Tasks list={activeItem} onEditTitle={onEditListTitle} />}</div>
+    <div className="todo__tasks">{lists && activeItem && <Tasks onAddTasks={onAddTasks} list={activeItem} onEditTitle={onEditListTitle} />}</div>
     </div>
   );
 }

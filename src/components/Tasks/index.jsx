@@ -5,8 +5,8 @@ import './Tasks.scss'
 import editIcon from "../../assets/img/edit.svg";
 import AddTaskForm from './AddTaskForm'
 
-const Tasks = ({ list, onEditTitle }) => {
-   console.log(list)
+const Tasks = ({ list, onEditTitle, onAddTasks }) => {
+
 
    const editTitle = () => {
       const newTitle = window.prompt('Название списка', list.name)
@@ -39,7 +39,7 @@ const Tasks = ({ list, onEditTitle }) => {
                   <input readOnly value={task.text} />
                </div>)
             }
-            <AddTaskForm />
+            <AddTaskForm list={list} onAddTasks={onAddTasks} />
          </div>
       </div >
    )
