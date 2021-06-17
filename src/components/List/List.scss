@@ -22,6 +22,11 @@
 
     span {
       flex: 1;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100px;
+      white-space: nowrap;
     }
     display: flex;
     align-items: center;
