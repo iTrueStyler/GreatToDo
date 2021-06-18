@@ -12,7 +12,7 @@
   left: 50%;
   top: 50%;
   width: 750px;
-  min-height: 530px;
+  height: 530px;
   transform: translate(-50%, -50%);
   box-shadow: 1px 2px 20px #f3f3f3;
   border-radius: 10px;
@@ -22,11 +22,12 @@
   &__sidebar {
     background-color: #d6e0fa;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 120px);
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
   }
   &__tasks {
+    overflow: auto;
     flex: 1;
     padding: 60px;
   }
@@ -46,6 +47,9 @@
   }
   &:active {
     background: darken(#4dd599, 10%);
+  }
+  &:disabled {
+    background: #d8d8d8;
   }
   &--grey {
     background: #f4f6f8;

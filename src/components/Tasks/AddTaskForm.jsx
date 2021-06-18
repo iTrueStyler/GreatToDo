@@ -7,7 +7,7 @@ const AddTaskForm = ({ list, onAddTasks }) => {
 
    const [visibleForm, setVisibleForm] = useState(false);
    const [inputValue, setInputValue] = useState('');
-   const [isLoading, setIsLoading] = useState('');
+   const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -18,10 +18,12 @@ const AddTaskForm = ({ list, onAddTasks }) => {
          text: inputValue,
          completed: false
       }
+      setIsLoading(true)
       axios.post('http://localhost:3001/tasks', obj).then(({ data }) => {
          console.log(data)
          onAddTasks(list.id, data)
          toogleFormVisible()
+
       }).catch(() => {
          alert('Error')
       }).finally(() => {
@@ -43,8 +45,8 @@ const AddTaskForm = ({ list, onAddTasks }) => {
             <span>Новая задача</span>
          </div> :
             <div className="tasks__form-block">
-               <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='field' type="text" placeholder='Название списка' />
-               <button onClick={addTask} className='button'>{isLoading ? "Добавление" : 'Добавить задачу'}</button>
+               <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='field' type="text" placeholder='Текст задачи' />
+               <button disabled={isLoading} onClick={addTask} className='button'>{isLoading ? "Добавление" : 'Добавить задачу'}</button>
                <button onClick={toogleFormVisible} className='button button--grey'>Отмена</button>
             </div>}
       </div>

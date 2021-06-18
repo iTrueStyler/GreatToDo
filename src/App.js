@@ -1,11 +1,7 @@
 import React,{useState,useEffect} from 'react';
-// import List from './components/List/index';
-// import AddList from './components/AddList/index.jsx'
-
-// // import DB from './assets/db.json';
-// import Tasks from './components/Tasks'
-import axios from 'axios'
-import {List,AddList,Tasks} from './components'
+import axios from 'axios';
+import { Route,useHistory } from 'react-router';
+import {List,AddList,Tasks} from './components';
 
 
 function App() {
@@ -13,6 +9,10 @@ function App() {
   const[lists,setLists]=useState(null);
   const[colors,setColors]=useState(null);
   const[activeItem,setActiveItem]=useState(null);
+
+  let history=useHistory();
+  
+
 
     useEffect(() => {
       
@@ -88,7 +88,33 @@ function App() {
         <AddList onAdd={onAddList} colors={colors} />
 
     </div>
-    <div className="todo__tasks">{lists && activeItem && <Tasks onAddTasks={onAddTasks} list={activeItem} onEditTitle={onEditListTitle} />}</div>
+      
+
+    
+      <div className="todo__tasks">
+      <Route exact path='/'>
+          {lists && lists.map((list) => (
+            <Tasks 
+            keygit={list.id}
+            onAddTasks={onAddTasks} 
+            list={list} 
+            
+            onEditTitle={onEditListTitle}
+            withoutEmpty />
+            
+          ))}
+      </Route>
+      <Route path='/lists/:id'>
+      {lists && activeItem && 
+      <Tasks 
+      onAddTasks={onAddTasks} 
+      list={activeItem} 
+      onEditTitle={onEditListTitle} />}
+     
+      </Route>
+       
+      </div>
+    
     </div>
   );
 }

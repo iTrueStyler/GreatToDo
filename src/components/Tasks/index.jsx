@@ -5,7 +5,7 @@ import './Tasks.scss'
 import editIcon from "../../assets/img/edit.svg";
 import AddTaskForm from './AddTaskForm'
 
-const Tasks = ({ list, onEditTitle, onAddTasks }) => {
+const Tasks = ({ list, onEditTitle, onAddTasks, withoutEmpty }) => {
 
 
    const editTitle = () => {
@@ -21,11 +21,12 @@ const Tasks = ({ list, onEditTitle, onAddTasks }) => {
    }
    return (
       <div className='tasks'>
-         <h2 className='tasks__title'>{list.name}
+         <h2 style={{ color: list.color.hex }} className='tasks__title'>
+            {list.name}
             <img src={editIcon} alt="EditCIon" onClick={editTitle} />
          </h2>
          <div className='tasks__items'>
-            {!list.tasks.length && <h2>No tasks</h2>}
+            {!withoutEmpty && !list.tasks.length && <h2>No tasks</h2>}
             {
                list.tasks.map(task => <div key={task.id} className='tasks__items-row'>
 
