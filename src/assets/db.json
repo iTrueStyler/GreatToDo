@@ -6,71 +6,12 @@
       "colorId": 5
     },
     {
-      "id": 2,
-      "name": "Фронтендdd",
-      "colorId": 4
-    },
-    {
       "id": 3,
       "name": "Фильмы и сериалы",
       "colorId": 3
-    },
-    {
-      "name": "dfsdf",
-      "colorId": 3,
-      "id": 4
     }
   ],
-  "tasks": [
-    {
-      "listId": 3,
-      "text": "qq",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "listId": 1,
-      "text": "gfgfd",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "listId": 2,
-      "text": "hfghfghfg",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "listId": 4,
-      "text": "gdfgdf",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "listId": 3,
-      "text": "fsfs",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "listId": 3,
-      "text": "222",
-      "completed": false,
-      "id": 20
-    },
-    {
-      "listId": 2,
-      "text": "gdfg",
-      "completed": false,
-      "id": 21
-    },
-    {
-      "listId": 2,
-      "text": "gghfg123",
-      "completed": false,
-      "id": 22
-    }
-  ],
+  "tasks": [],
   "colors": [
     {
       "id": 1,

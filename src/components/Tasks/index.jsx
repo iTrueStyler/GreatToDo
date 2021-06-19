@@ -6,7 +6,7 @@ import editIcon from "../../assets/img/edit.svg";
 import AddTaskForm from './AddTaskForm'
 import Task from './Task'
 
-const Tasks = ({ list, onEditTitle, onAddTasks, withoutEmpty, onRemoveTask, onEditTask }) => {
+const Tasks = ({ list, onEditTitle, onAddTasks, withoutEmpty, onRemoveTask, onEditTask, onCompleteTask }) => {
 
 
    const editTitle = () => {
@@ -34,11 +34,11 @@ const Tasks = ({ list, onEditTitle, onAddTasks, withoutEmpty, onRemoveTask, onEd
 
          <div className='tasks__items'>
 
-            {!withoutEmpty && !list.tasks.length && <h2>No tasks</h2>}
+            {!withoutEmpty && list.tasks && !list.tasks.length && <h2>No tasks</h2>}
             {
-               list.tasks.map(task => <Task list={list} onRemove={onRemoveTask} onEdit={onEditTask} key={task.id} {...task} />)
+               list.tasks && list.tasks.map(task => <Task onComplete={onCompleteTask} list={list} onRemove={onRemoveTask} onEdit={onEditTask} key={task.id} {...task} />)
             }
-            <AddTaskForm list={list} onAddTasks={onAddTasks} />
+            <AddTaskForm key={list.id} list={list} onAddTasks={onAddTasks} />
          </div>
       </div >
    )
