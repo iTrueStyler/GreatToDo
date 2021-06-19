@@ -20,7 +20,7 @@ const AddTaskForm = ({ list, onAddTasks }) => {
       }
       setIsLoading(true)
       axios.post('http://localhost:3001/tasks', obj).then(({ data }) => {
-         console.log(data)
+
          onAddTasks(list.id, data)
          toogleFormVisible()
 
@@ -41,7 +41,7 @@ const AddTaskForm = ({ list, onAddTasks }) => {
    return (
       <div className="tasks__form">
          {!visibleForm ? <div onClick={toogleFormVisible} className="tasks__form-new">
-            <img src={editSvg} alt="edit" />
+            {/* <img src={editSvg} alt="edit" /> */}
             <span>Новая задача</span>
          </div> :
             <div className="tasks__form-block">

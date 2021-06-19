@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "name": "Фронтенд",
+      "name": "Фронтендdd",
       "colorId": 4
     },
     {
@@ -23,34 +23,52 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": true
-    },
-    {
-      "id": 2,
-      "listId": 2,
-      "text": "Изучить паттерны проектирования",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "listId": 2,
-      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
-      "completed": true
-    },
-    {
-      "id": 4,
-      "listId": 2,
-      "text": "Redux (redux-observable, redux-saga)",
-      "completed": false
-    },
-    {
       "listId": 3,
       "text": "qq",
       "completed": false,
       "id": 5
+    },
+    {
+      "listId": 1,
+      "text": "gfgfd",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "listId": 2,
+      "text": "hfghfghfg",
+      "completed": false,
+      "id": 9
+    },
+    {
+      "listId": 4,
+      "text": "gdfgdf",
+      "completed": false,
+      "id": 10
+    },
+    {
+      "listId": 3,
+      "text": "fsfs",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "listId": 3,
+      "text": "222",
+      "completed": false,
+      "id": 20
+    },
+    {
+      "listId": 2,
+      "text": "gdfg",
+      "completed": false,
+      "id": 21
+    },
+    {
+      "listId": 2,
+      "text": "gghfg123",
+      "completed": false,
+      "id": 22
     }
   ],
   "colors": [
